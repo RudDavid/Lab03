@@ -35,13 +35,10 @@ int main() {
 
   for (count = 1.0; count <= border; ++count) {
     cout << "Enter capacity: ";
-    // Задаем емкость: 0,03; 0,03; 0,3; 0,3;
     cin  >> capacity;
     cout << "Enter inductance: ";
-    // Задаем индуктивность: 0,6; 6; 0,6; 6;
     cin >> inductance;
     cout << "Enter resistance: ";
-    // Задаем сопротивление: 5000; 10000; 5000; 10000;
     cin >> resistance;
 
     gamma = resistance / (2.0 * inductance);
@@ -50,17 +47,18 @@ int main() {
    
     if (beta > 0) {
       indexI = (alpha * sin(sqrt(beta) * time)) / sqrt(beta);
-      cout << fixed; cout.precision(4);
-      cout << "beta = " << beta;
-      cout << "\t\tindexI = " << indexI << endl;
+      cout << fixed; cout.precision(border)
+           << "beta = " << beta;
+           << "\t\tindexI = " << indexI << endl;
     }
     if (beta < 0) {
       indexI = (alpha * sinh(sqrt(-beta) * time)) / sqrt(-beta);
       cout << fixed << cout.precision(border) 
-      << "beta = " << beta
-      << "\t\tindexI = " << indexI << endl;
+           << "beta = " << beta
+           << "\t\tindexI = " << indexI << endl;
     }
     
   }
   return 0;
 }
+
