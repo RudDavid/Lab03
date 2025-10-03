@@ -21,10 +21,10 @@ int main() {
   double capacity;
   double inductance;
   double resistance;
-  double count;
+  int countVariables;
   double border;
 
-  count = 1.0;
+  countVariables = 1.0;
   border = 4.0;
   cout << "Enter time: ";
   // Время равно 0.001
@@ -33,7 +33,7 @@ int main() {
   // ЭДС рано 12
   cin >> electromotiveForce;
 
-  for (count = 1.0; count <= border; ++count) {
+  for (countVariables = 1.0; countVariables <= border; ++countVariables) {
     cout << "Enter capacity: ";
     cin  >> capacity;
     cout << "Enter inductance: ";
@@ -45,13 +45,13 @@ int main() {
     alpha = (pow(10.0, 3.0) * electromotiveForce * pow(e, (-gamma * time))) / inductance;
     beta = (pow(10.0, 6.0) / (inductance * capacity)) - pow(gamma, 2.0);
    
-    if (beta > 0) {
+    if (beta > 0.0) {
       indexI = (alpha * sin(sqrt(beta) * time)) / sqrt(beta);
       cout << fixed; cout.precision(border)
-           << "beta = " << beta;
+           << "beta = " << beta
            << "\t\tindexI = " << indexI << endl;
     }
-    if (beta < 0) {
+    if (beta < 0.0) {
       indexI = (alpha * sinh(sqrt(-beta) * time)) / sqrt(-beta);
       cout << fixed << cout.precision(border) 
            << "beta = " << beta
@@ -61,4 +61,5 @@ int main() {
   }
   return 0;
 }
+
 
