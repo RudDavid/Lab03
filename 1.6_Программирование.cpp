@@ -18,7 +18,7 @@ int main() {
   double gamma;
   double time;
   double electromotiveForce;
-  double capacity;
+  double volume;
   double inductance;
   double resistance;
   int countVariables;
@@ -34,8 +34,8 @@ int main() {
   cin >> electromotiveForce;
 
   for (countVariables = 1.0; countVariables <= border; ++countVariables) {
-    cout << "Enter capacity: ";
-    cin  >> capacity;
+    cout << "Enter volume: ";
+    cin  >> volume;
     cout << "Enter inductance: ";
     cin >> inductance;
     cout << "Enter resistance: ";
@@ -43,11 +43,11 @@ int main() {
 
     gamma = resistance / (2.0 * inductance);
     alpha = (pow(10.0, 3.0) * electromotiveForce * pow(e, (-gamma * time))) / inductance;
-    beta = (pow(10.0, 6.0) / (inductance * capacity)) - pow(gamma, 2.0);
+    beta = (pow(10.0, 6.0) / (inductance * volume)) - pow(gamma, 2.0);
    
     if (beta > 0.0) {
       indexI = (alpha * sin(sqrt(beta) * time)) / sqrt(beta);
-      cout << fixed; cout.precision(border)
+      cout << fixed << cout.precision(border)
            << "beta = " << beta
            << "\t\tindexI = " << indexI << endl;
     }
@@ -61,5 +61,6 @@ int main() {
   }
   return 0;
 }
+
 
 
